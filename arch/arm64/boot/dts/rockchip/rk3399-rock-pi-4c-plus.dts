@@ -616,8 +616,16 @@
 };
 
 &hdmi {
+	avdd-0v9-supply = <&vcc0v9_soc>;
+	avdd-1v8-supply = <&vcca_1v8>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&hdmi_i2c_xfer>, <&hdmi_cec>;
+	clocks = <&cru PCLK_HDMI_CTRL>,
+ 	         <&cru SCLK_HDMI_SFR>,
+ 	         <&cru SCLK_HDMI_CEC>,
+ 	         <&cru PCLK_VIO_GRF>,
+ 	         <&cru PLL_VPLL>;
+ 	clock-names = "iahb", "isfr", "cec", "grf", "vpll";
 	status = "okay";
 };
 
@@ -630,10 +638,12 @@
 };
 
 &hdmi_in_vopl {
-	status = "disabled";
+	status = "okay";
 };
 
 &i2c1 {
+	i2c-scl-rising-time-ns = <450>;
+	i2c-scl-falling-time-ns = <15>;
 	status = "okay";
 };
 
