@@ -616,8 +616,6 @@
 };
 
 &hdmi {
-	avdd-0v9-supply = <&vcc0v9_soc>;
-	avdd-1v8-supply = <&vcca_1v8>;
 	pinctrl-names = "default";
 	pinctrl-0 = <&hdmi_i2c_xfer>, <&hdmi_cec>;
 	status = "okay";
